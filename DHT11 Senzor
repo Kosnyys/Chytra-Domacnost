@@ -1,0 +1,46 @@
+esphome:
+  name: homeassistant-kosnys
+  friendly_name: HomeAssistant Kosnys
+  compile_process_limit: 1
+
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "oxko5YgNhN41M7vdv2VmgrPz4nvTy99snhTue3DTeNU="
+
+ota:
+  - platform: esphome
+    password: "c09d761ab15763f0c518890867796758"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Homeassistant-Kosnys"
+    password: "ck3HjHhidMkl"
+
+captive_portal:
+  
+    # Example configuration entry
+web_server:
+  port: 80
+
+sensor:
+  - platform: dht
+    pin: GPIO22
+    model: DHT11
+    temperature:
+      name: "DHT11 Teplota"
+    humidity:
+      name: "DHT11 Vlhkost"
+    update_interval: 5s
