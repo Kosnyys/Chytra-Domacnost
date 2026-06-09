@@ -1,0 +1,15 @@
+alias: bzucak on nad 30 stupnu
+description: ""
+triggers:
+  - trigger: numeric_state
+    entity_id:
+      - sensor.homeassistant_kosnys_dht11_teplota
+    above: 30
+conditions: []
+actions:
+  - action: switch.turn_on
+    metadata: {}
+    target:
+      entity_id: switch.homeassistant_kosnys_bzucak
+    data: {}
+mode: single
