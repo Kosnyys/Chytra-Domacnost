@@ -1,0 +1,18 @@
+alias: Motion LED Light ON
+description: ""
+triggers:
+  - trigger: state
+    entity_id:
+      - binary_sensor.homeassistant_kosnys_pir_senzor
+    from:
+      - "off"
+    to:
+      - "on"
+conditions: []
+actions:
+  - action: light.turn_on
+    metadata: {}
+    target:
+      entity_id: light.elgato_strip_light
+    data: {}
+mode: single
