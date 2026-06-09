@@ -1,0 +1,15 @@
+alias: vetrak kdyz je teplota nad 28
+description: ""
+triggers:
+  - trigger: numeric_state
+    entity_id:
+      - sensor.homeassistant_kosnys_dht11_teplota
+    above: 28
+conditions: []
+actions:
+  - action: fan.turn_on
+    metadata: {}
+    target:
+      entity_id: fan.homeassistant_kosnys_vetrak
+    data: {}
+mode: single
