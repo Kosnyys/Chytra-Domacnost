@@ -1,0 +1,15 @@
+alias: vetrak off pod 24 stupnu
+description: ""
+triggers:
+  - trigger: numeric_state
+    entity_id:
+      - sensor.homeassistant_kosnys_dht11_teplota
+    below: 23
+conditions: []
+actions:
+  - action: fan.turn_off
+    metadata: {}
+    target:
+      entity_id: fan.homeassistant_kosnys_vetrak
+    data: {}
+mode: single
